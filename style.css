@@ -1,28 +1,39 @@
-body{
-    background-color: lightgray !important;
+body {
+  background-color: lightgray !important;
 }
-h1{
-    text-align: center;
-    padding: 40px 0px;
+h1 {
+  text-align: center;
+  padding: 40px 0px;
 }
 h2 {
-    text-align: center;
-    padding-top: 60px;
+  text-align: center;
+  padding-top: 60px;
 }
-.badge{
-    margin-right: 3%;
-    width: 80px;
+.logo{
+    width: 50px;
 }
-.list-group{
-    width: 70%;
+.badge {
+  margin-right: 3%;
+  width: 80px;
 }
-.list-group-item{
-padding-left: 30%;
+.list-group {
+  width: 70%;
 }
-.col-12{
-    padding-top: 20px;
+.list-group-item {
+  padding-left: 30%;
+  justify-content: space-between;
+  align-items: center;
+}
+.task {
+    width: 98%;
+}
+.form-check {
+  width: 2%;
+}
+.col-12 {
+  padding-top: 20px;
 }
 .btn-primary {
-    width: 100px;
-    margin: 30px 0px 60px 0px;
+  width: 100px;
+  margin: 30px 0px 60px 0px;
 }
