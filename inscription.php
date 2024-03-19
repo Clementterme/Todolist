@@ -28,6 +28,8 @@ if (isset($_POST["envoi"])) {
             $_SESSION["email"] = $email;
 
             $_SESSION["id"] = $selectUser->fetch()["id"];
+
+            $_SESSION['connecté'] = TRUE;
         }
 
         header("location: index.php");

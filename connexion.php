@@ -14,12 +14,17 @@ if(isset($_POST["envoi"])) {
         $selectUser = $bdd->prepare("SELECT * FROM users WHERE email = ? AND mdp = ?");
         $selectUser->execute(array($email, $mdp));
 
+        $selectUserPrenom = $bdd->prepare("SELECT * FROM users WHERE email = ? AND mdp = ?");
+        $selectUserPrenom->execute(array($email, $mdp));
+
         if($selectUser->rowCount() > 0) {
             $_SESSION["email"] = $email;
             $_SESSION["mdp"] = $mdp;
-            $_SESSION["id"] = $selectUser->fetch()["id"];
+            $_SESSION["nom"] = $selectUser->fetch()["nom"];
+            $_SESSION["prenom"] = $selectUserPrenom->fetch()["prenom"];
+            // $_SESSION["id"] = $selectUser->fetch()["id"];
 
-            $_SESSION['connecté'] = true.
+            $_SESSION['connecté'] = TRUE;
 
             header("location: index.php");
         } else {
