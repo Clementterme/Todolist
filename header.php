@@ -22,12 +22,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./index.php">Todolist</a>
                 </li>
-                <li class="nav-item">
+                <?php if (isset($_SESSION['connecté'])) {
+                    echo ('<li class="nav-item">
                     <a class="nav-link" href="./compte.php">Mon compte</a>
-                </li>
+                </li>');
+                }
+                ?>
             </ul>
-            <?php if (isset($_SESSION['connecté'])) { 
-                echo('<li class="bonjour">Bonjour ' . $_SESSION["prenom"] . ' !</li>'); ?>
+            <?php if (isset($_SESSION['connecté'])) {
+                echo ('<li class="bonjour">Bonjour ' . $_SESSION["prenom"] . ' !</li>'); ?>
                 <a href="./deconnexion.php"><button class="btn btn-outline-success" type="submit">Déconnexion</button></a>
             <?php } else { ?>
                 <a href="./connexion.php"><button class="btn btn-outline-success" type="submit">Connexion</button></a>
