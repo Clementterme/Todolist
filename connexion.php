@@ -2,19 +2,20 @@
 
 session_start();
 
-include "header.php";
+include "./header.php";
+include "./config.php";
 
-$bdd = new PDO("mysql:host=localhost;dbname=todolist;charset=utf8;", "root", "");
+$bdd = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8;", DB_USER, DB_PWD);
 
 if(isset($_POST["envoi"])) {
     if(!empty($_POST["email"]) && !empty($_POST["mdp"])) {
         $email = htmlspecialchars($_POST['email']);
         $mdp = htmlspecialchars($_POST['mdp']);
 
-        $selectUser = $bdd->prepare("SELECT * FROM users WHERE email = ? AND mdp = ?");
+        $selectUser = $bdd->prepare("SELECT * FROM user WHERE email = ? AND mdp = ?");
         $selectUser->execute(array($email, $mdp));
 
-        $selectUserPrenom = $bdd->prepare("SELECT * FROM users WHERE email = ? AND mdp = ?");
+        $selectUserPrenom = $bdd->prepare("SELECT * FROM user WHERE email = ? AND mdp = ?");
         $selectUserPrenom->execute(array($email, $mdp));
 
         if($selectUser->rowCount() > 0) {
@@ -22,7 +23,6 @@ if(isset($_POST["envoi"])) {
             $_SESSION["mdp"] = $mdp;
             $_SESSION["nom"] = $selectUser->fetch()["nom"];
             $_SESSION["prenom"] = $selectUserPrenom->fetch()["prenom"];
-            // $_SESSION["id"] = $selectUser->fetch()["id"];
 
             $_SESSION['connecté'] = TRUE;
 
@@ -47,7 +47,7 @@ if(isset($_POST["envoi"])) {
             <div class="list-group">
                 <div class="col-12">
                     <label for="inputAddress2" class="form-label">E-mail</label>
-                    <input type="text" class="form-control" id="inputAddress2" name="email">
+                    <input type="email" class="form-control" id="inputAddress2" name="email">
                 </div>
                 <div class="col-12">
                     <label for="inputAddress" class="form-label">Mot de passe</label>
