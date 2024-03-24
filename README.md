@@ -1,5 +1,14 @@
 # Todolist
-Projet Simplon Todolist en cours
+Projet Simplon Todolist
+
+## Installation
+
+Lors de l'installation, veuillez renseigner dans le fichier config.php les bonnes informations relatives à la base de données.
+
+## Migration
+Lors de l'installation, la base de données va initialiser le code du fichier stocké dans les `Migrations`.
+
+Si vous souhaitez faire des modifications avant la création de la base de données, c'est donc dans ce fichier que vous devez modifier les choses.
 
 ## Contexte du projet
 L’objectif est de créer une application SPA (single page application), c’est à dire créer un site contenant une unique page qui ne sera pas rechargée lorsqu’une action y sera menée.
@@ -39,7 +48,7 @@ Le site mis en ligne sur le serveur de simplon.
 Rendu Simplonline avec le lien des différents livrables (vérifier qu'ils soient accessibles publiquement).
 
 ## Modalités pédagogiques
-Vous avez 11 demi-journée pour réaliser le projet, à rendre le 22/03/2024 (pas de présentation de projet). Travail SOLO.
+11 demi-journée pour réaliser le projet, à rendre le 22/03/2024 (pas de présentation de projet). Travail SOLO.
 
 ## Modalités d'évaluation
 Évaluation individuelle.

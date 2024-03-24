@@ -1,14 +1,14 @@
-<?php 
+<?php
 
 session_start();
 
 include "./header.php";
 include "./config.php";
 
-$bdd = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8;", DB_USER, DB_PWD);
+$bdd = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8;", DB_USER, DB_PWD);
 
-if(isset($_POST["envoi"])) {
-    if(!empty($_POST["email"]) && !empty($_POST["mdp"])) {
+if (isset($_POST["envoi"])) {
+    if (!empty($_POST["email"]) && !empty($_POST["mdp"])) {
         $email = htmlspecialchars($_POST['email']);
         $mdp = htmlspecialchars($_POST['mdp']);
 
@@ -18,7 +18,7 @@ if(isset($_POST["envoi"])) {
         $selectUserPrenom = $bdd->prepare("SELECT * FROM user WHERE email = ? AND mdp = ?");
         $selectUserPrenom->execute(array($email, $mdp));
 
-        if($selectUser->rowCount() > 0) {
+        if ($selectUser->rowCount() > 0) {
             $_SESSION["email"] = $email;
             $_SESSION["mdp"] = $mdp;
             $_SESSION["nom"] = $selectUser->fetch()["nom"];
@@ -42,6 +42,7 @@ if(isset($_POST["envoi"])) {
 
 <body>
     <h1>CONNEXION</h1>
+    
     <form method="POST">
         <div class="d-flex justify-content-center">
             <div class="list-group">

@@ -12,8 +12,8 @@ include "./config.php";
 
 
     <?php
-    
-    echo('
+
+    echo ('
     <form method="POST">
         <div class="d-flex justify-content-center">
             <div class="list-group">
@@ -41,7 +41,7 @@ include "./config.php";
         </div>
     </form>') ?>
 
-<?php 
+    <?php 
 
 // $bdd = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8;", DB_USER, DB_PWD);
 
